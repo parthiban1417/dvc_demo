@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd 
 import os 
-import sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split
 import yaml
 
-def load_data(data_url: str) -> pd.dataframe:
+def load_data(data_url: str) -> pd.DataFrame:
     try:
         df=pd.read_csv(data_url)
         return df
@@ -19,8 +19,8 @@ def load_data(data_url: str) -> pd.dataframe:
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     try:
-        df.drop(['tweet_id'],inplace=True)
-        final_df=df[df['sentiment'].isi(['happiness','sadness'])]
+        df.drop(columns=['tweet_id'],inplace=True)
+        final_df=df[df['sentiment'].isin(['happiness','sadness'])]
         final_df['sentiment'].replace({'happiness':1,'sadness':0},inplace=True)
         return final_df
     except KeyError as e:
