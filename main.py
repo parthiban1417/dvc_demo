@@ -10,3 +10,4 @@ os.system('python src/model_building.py')#used to execute end point of the pipel
 print('Model Building Completed')
 os.system('python src/model_evaluation.py')#used to execute end point of the pipeline
 print('Model Evaluation Completed')
+
